@@ -10,6 +10,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * OpenSceneGraph Public License for more details.
 */
+#include <algorithm>
 #include <osg/GLExtensions>
 #include <osg/Image>
 #include <osg/Texture>
@@ -415,7 +416,7 @@ void Texture::TextureProfile::computeSize()
         case GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR:
         {
             _size = 0;
-            for (int i = 0; i < std::max(_numMipmapLevels, 1); ++i)
+            for (int i = 0; i < (std::max)(_numMipmapLevels, 1); ++i)
             {
                 GLint blockSize;
                 GLint size;
